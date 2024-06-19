@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triangulation</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div id="container">
+    <div id="instructions">
+      <h2 class="centered-heading">Triangulation for Range Estimation</h2>
+      <!-- <p style="font-family:georgia">Click on the canvas to set points A, B, and the target, forming a triangle. As you set points, their coordinates, angles at A and B, and distances between A-B, A-C, and B-C are calculated and displayed.  -->
+      <!-- <br> -->
+      <!-- As additional points are added, lines will be drawn from points A and B to these new points, and their distances from points A and B will be displayed dynamically.  -->
+      <!-- </p> -->
+    </div>
+
+    <canvas id="canvas" width="1400" height="1000"></canvas>
+
+    <div id="outputContainer">
+      <div id="result">
+        <p>One unit = one metre</p>
+        
+        <p>Coordinates of Observer A: <input type="text" id="pointA" readonly></p>
+        <p>Coordinates of Observer B: <input type="text" id="pointB" readonly></p>
+        <p>Distance between Observer A and Observer B (d<sub>AB</sub>): <input type="text" id="distanceAB" readonly> m</p>
+
+        <h3>Result:</h3>
+        <p>Coordinates of Target: <input type="text" id="pointC" readonly></p>
+        <p>Angle at Observer A (θ<sub>A</sub>): <input type="text" id="angle1Output" readonly> °</p>
+        <p>Angle at Observer B (θ<sub>B</sub>): <input type="text" id="angle2Output" readonly> °</p>
+        <p>Distance between Observer A and Target (r<sub>AT</sub>): <input type="text" id="distanceAC" readonly> m</p>
+        <p>Distance between Observer B and Target (r<sub>BT</sub>): <input type="text" id="distanceBC" readonly> m</p>      
+      </div>
+      <button id="refreshButton">Refresh Page</button>
+    </div>
+  </div>
+
+  <script src="assets/js/final_script.js" defer></script>
+</body>
+</html>
