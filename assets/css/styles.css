@@ -1,0 +1,167 @@
+* {
+    box-sizing: border-box; /* Ensures padding and borders are included within the width and height */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: #D8E5EA;
+    background: radial-gradient(at left top, #D8E5EA, #7BBFFF);
+}
+
+#container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 3fr 1.2fr;  /* Adjusted to create a larger area for the canvas and a smaller area for the output */
+    grid-template-areas: 
+    "instructions instructions"
+    "canvas outputContainer";
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.centered-heading {
+    color: #0060c7;  /* Blue text color */
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: xx-large;
+}
+
+#instructions {
+    padding: 30px;
+    grid-area: instructions;
+    text-align: center;  /* Center the heading */
+}
+
+#canvas {
+    grid-area: canvas;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: auto;
+    background-color: white;
+    cursor: crosshair;
+    border: 2px solid #007BFF;
+    border-radius: 10px; /* Added for rounded corners */
+    width: 90%;
+    height: auto;
+    max-height: 80vh;
+}
+
+#outputContainer {
+    grid-area: outputContainer;
+    padding: 20px;
+    border: 2px solid #007BFF;
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: auto; /* Ensures content is scrollable if overflow */
+}
+
+#outputContainer input[type="text"] {
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    padding: 5px;
+    width: 80px;
+    text-align: center;
+    font-weight: bold;
+    color: #007BFF;
+    margin-left: 10px; /* Adjust this for spacing */
+}
+
+
+video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+#result p {
+    font-size: 16px;
+    color: #333;
+}
+
+#result input {
+    border: 1px solid #007BFF;
+    padding: 3px;
+    width: 100px;
+    margin-left: 5px;
+}
+
+.result-entry {
+    font-size: 16px;
+    color: #333;
+}
+
+.result-entry input {
+    border: 1px solid #007BFF;
+    padding: 3px;
+    width: 100px;
+    margin-left: 5px;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    #container {
+        grid-template-columns: 1fr; /* Stack the canvas and output container vertically */
+        grid-template-rows: auto auto 1fr;
+        grid-template-areas:
+            "instructions"
+            "canvas"
+            "outputContainer";
+    }
+
+    #canvas, #outputContainer {
+        margin: 10px;
+        width: calc(100% - 20px); /* Adjust width to take into account margin */
+        max-height: none; /* Remove max-height constraint for better fit */
+    }
+}
+
+#tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    pointer-events: none;
+    display: none;
+    z-index: 10;
+}
+
+#refreshButton {
+    display: table; 
+    margin: 0 auto; 
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: Arial;
+
+}
+
+#refreshButton:hover {
+    background-color: #0150a5;
+}
